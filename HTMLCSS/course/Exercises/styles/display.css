@@ -1,0 +1,61 @@
+body {
+    font-family: Arial;
+}
+.name {
+    width: 150px;
+    padding: 10px 5px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-right: 3px;
+}
+
+.email {
+    display: block;
+    padding: 10px 5px;
+    width: 318px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin: 10px 0px;
+}
+
+.sign {
+    padding: 10px 0;
+    background-color: rgb(23, 133, 223);
+    width: 330px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.req {
+    margin-top: 80px;
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.loc {
+    display: block;
+    width: 318px;
+    padding: 10px;
+    margin: 8px 0;
+    background-color: rgb(238, 238, 238);
+    border: none;
+    color: gray;
+}
+
+.res, .sch {
+    padding: 10px 15px;
+    margin: 20px 0;
+    margin-right: 15px;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.res {
+    background-color: black;
+    color: white;
+}

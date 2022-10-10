@@ -1,0 +1,64 @@
+body {
+    font-family: Arial;
+}
+
+.profile {
+    width: 220px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.15);
+    margin: 20px 10px;
+    display: inline-block;
+}
+
+.profile img {
+    width: 220px;
+    height: 250px;
+    object-fit:cover;
+    object-position: center;
+    margin-bottom: 0;
+}
+
+.profile p {
+    margin: 8px 6px;
+    font-size: 14px;
+    color: gray;
+}
+
+.profile .name {
+    font-weight: bold;
+    color: black;
+    font-size: 18px;
+    margin-bottom: 0;
+}
+
+.profile .friends {
+    margin-top: 10px;
+}
+
+.profile button {
+    margin: 10px 6px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(0, 81, 255);
+    padding: 10px 15px;
+    cursor: pointer;
+
+}
+
+.mid {
+    margin: 6px 6px;
+}
+
+.mid div {
+    display: inline-block;
+}
+
+.mut {
+    vertical-align: top;
+}
+
+.mutPic img {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
