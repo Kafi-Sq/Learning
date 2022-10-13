@@ -1,0 +1,72 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    box-sizing: border-box;
+}
+
+.main {
+    display: flex;
+}
+
+.right {
+    width: 80px;
+}
+
+.right img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin: 10px 10px;
+}
+
+.left {
+    width: 450px;
+}
+
+p {
+    margin: 0;
+}
+
+.user {
+    margin-top: 14px;
+    margin-bottom: 4px;
+    font-weight: bold;
+}
+
+.at {
+    font-weight: normal;
+    color: gray;
+}
+
+.link {
+    display: flex;
+    width: 420px;
+    height: 120px;
+    border: 1px solid rgb(194, 194, 194);
+    margin-top: 15px;
+    border-radius: 20px;
+
+}
+
+.linkPic {
+    flex: 1;
+    background-color: rgb(202, 202, 202);
+    border-radius: 20px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-left: -1px;
+}
+
+.linkText {
+    flex: 2;
+}
+
+.linkText p {
+    margin: 10px 10px;
+}
+
+.yt {
+    color: gray;
+}
