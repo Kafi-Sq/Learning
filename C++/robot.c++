@@ -1,9 +1,12 @@
 #include <stdlib.h>
 #include <iostream>
 #include <ctime>
+#include <thread>
+#include <mutex>
 
 using namespace std;
 
+mutex m;
 int robot;
 int bomb;
 int gold1;
@@ -13,7 +16,6 @@ int endGame = 0;
 char space[17] = { 'o', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-' };
 
 void field() {
-	system("cls");
 	cout << steps << endl;
 	cout << endl;
 
@@ -30,7 +32,6 @@ void field() {
 
 void move() {
 	int move = rand() % 3;
-	cout << move << endl;
 
 	if (steps == 2) {
 		int BMove = rand() % 3;
@@ -66,9 +67,8 @@ void move() {
 }
 
 void play() {
-	// draw field
 
-	// Spawn robot, bomb, and gold in random places
+
 	robot = rand() % 17;
 	bomb = rand() % 17;
 	gold1 = rand() % 17;
@@ -317,22 +317,24 @@ void play() {
 
 	field();
 
-	// Move robot one step
 	do {
+		m.lock();
 		move();
-		field();
+		if (endGame == 0) {
+			field();
+		}
+		m.unlock();
 	} while (endGame != 1);
-	// record how many steps she took
-	// check if bomb or gold
-
-	// if neither
 }
 
 
 
 int main() {
 	srand(time(0));
-	play();
+	thread t1(play);
+	thread t2(play);
+	t1.join();
+	t2.join();
 
 	return 0;
 }
