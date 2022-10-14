@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="plain.css">
+    <title>Plain Text</title>
+</head>
+<body>
+    <h1>Employee Interest Survey form</h1>
+    <div class="name">
+        <p>Enter you name:</p>
+        <input class="input" type="text">
+    </div>
+    
+    <div class="dep">
+        <p>Enter your department:</p>
+        <input class="input" type="text">
+    </div>
+    
+    <div class="tell">
+        <p>Tell us a little about yourself:</p>
+        <input class="input" type="text">
+    </div>
+    
+    <div class="exer">
+        <p>Do you exercise at home?</p>
+        <input type="radio" id="yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no">
+        <label for="no">No</label>
+    </div>
+    
+
+    <div>
+        <p>How do you like to read about your favorite topics?</p>
+        <input type="checkbox" id="book">
+        <label for="book">Books</label>
+        <input type="checkbox" id="online">
+        <label for="online">Online Resources</label>
+        <input type="checkbox" id="phone">
+        <label for="phone">Phone apps</label>
+        <input type="checkbox" id="mag">
+        <label for="mag">Magazines</label>
+    </div>
+    
+    <br/>
+    <label for="movies">What genre of movies do you like?</label>
+    <select name="movies" id="movies">
+        <option value="Horror">Horror</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Romance">Romance</option>
+        <option value="Thriller">Thriller</option>
+    </select>
+    <br>
+    <button>Submit form</button>
+</body>
+</html>

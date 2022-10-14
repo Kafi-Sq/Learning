@@ -1,0 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.input {
+    width: 220px;
+}
+
+.name p{
+    display: inline-block;
+}
+
+.dep p{
+    display: inline-block;
+}
+
+.tell {
+    display: flex;
+    align-items:flex-end;
+    margin-left: 410px;
+}
+
+.tell p{
+    margin-bottom: 0;
+}
+
+.tell input {
+    height: 70px;
+}
+
+.exer p {
+    display: inline-block;
+}
+
+button {
+    margin-top: 16px;
+}
