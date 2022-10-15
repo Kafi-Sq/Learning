@@ -1,0 +1,862 @@
+#include <iostream>
+#include <ctime>
+#include <cstdlib>
+
+using namespace std;
+
+char space[17] = { 'o', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-' };
+
+int stepClock = 1;
+int bombClock = 1;
+int robot;
+int bomb1, bomb2;
+
+void board() {
+	
+	cout << "t = " << stepClock << endl;
+	cout << endl;
+
+	cout << "--------------------------" << endl;
+	cout << "|  " << space[1] << "  |  " << space[2] << "  |  " << space[3] << "  |  " << space[4] << "  |" << endl;
+	cout << "--------------------------" << endl;
+	cout << "|  " << space[5] << "  |  " << space[6] << "  |  " << space[7] << "  |  " << space[8] << "  |" << endl;
+	cout << "--------------------------" << endl;
+	cout << "|  " << space[9] << "  |  " << space[10] << "  |  " << space[11] << "  |  " << space[12] << "  |" << endl;
+	cout << "--------------------------" << endl;
+	cout << "|  " << space[13] << "  |  " << space[14] << "  |  " << space[15] << "  |  " << space[16] << "  |" << endl;
+	cout << "--------------------------" << endl;
+}
+
+void spawnPlayers() {
+	srand(time(0));
+	robot = (rand() % 16) + 1;
+	bomb1 = (rand() % 16) + 1;
+	bomb2 = (rand() % 16) + 1;
+
+	if (bomb1 == robot) {
+		do {
+			bomb1 = (rand() % 16) + 1;
+		} while (robot != bomb1);
+	}
+
+	if (bomb2 == robot) {
+		do {
+			bomb2 = (rand() % 16) + 1;
+		} while (robot != bomb2);
+	}
+
+	if (bomb2 == bomb1) {
+		do {
+			bomb2 = (rand() % 16) + 1;
+		} while (robot != bomb2);
+	}
+	
+
+	space[robot] = 'R';
+	space[bomb1] = 'B';
+	space[bomb2] = 'B';
+
+	board();
+
+}
+
+void MoveRobot() {
+	srand(time(0));
+	if (stepClock == 1) {
+		if (space[1] == 'R' || space[13] == 'R') {
+			if (space[1] == 'R') {
+				space[robot] = '-';
+				robot = robot + 5;
+				space[robot] = 'R';
+			}
+			else {
+				space[robot] = '-';
+				robot = robot - 3;
+				space[robot] = 'R';
+			}
+		} 
+		else if (space[4] == 'R' || space[16] == 'R') {
+			if (space[4] == 'R') {
+				space[robot] = '-';
+				robot = robot + 3;
+				space[robot] = 'R';
+			}
+			else {
+				space[robot] = '-';
+				robot = robot - 5;
+				space[robot] = 'R';
+			}
+		} 
+		else if (space[5] == 'R' || space[9] == 'R') {
+			int choice = (rand() % 2) + 1;
+			if (choice == 1) {
+				space[robot] = '-';
+				robot = robot - 3;
+				space[robot] = 'R';
+			}
+			else {
+				space[robot] = '-';
+				robot = robot + 5;
+				space[robot] = 'R';
+			}
+		} 
+		else if (space[8] == 'R' || space[12] == 'R') {
+			int choice = (rand() % 2) + 1;
+			if (choice == 1) {
+				space[robot] = '-';
+				robot = robot - 5;
+				space[robot] = 'R';
+			}
+			else {
+				space[robot] = '-';
+				robot = robot + 3;
+				space[robot] = 'R';
+			}
+		} 
+		else if (space[2] == 'R' || space[3] == 'R') {
+			int choice = (rand() % 2) + 1;
+			if (choice == 1) {
+				space[robot] = '-';
+				robot = robot + 3;
+				space[robot] = 'R';
+			}
+			else {
+				space[robot] = '-';
+				robot = robot + 5;
+				space[robot] = 'R';
+			}
+		} 
+		else if (space[14] == 'R' || space[15] == 'R') {
+			int choice = (rand() % 2) + 1;
+			if (choice == 1) {
+				space[robot] = '-';
+				robot = robot - 3;
+				space[robot] = 'R';
+			}
+			else {
+				space[robot] = '-';
+				robot = robot - 5;
+				space[robot] = 'R';
+			}
+		}
+		else {
+			int choice = (rand() % 4) + 1;
+			if (choice == 1) {
+				space[robot] = '-';
+				robot = robot - 5;
+				space[robot] = 'R';
+			}
+			else if (choice == 2) {
+				space[robot] = '-';
+				robot = robot - 3;
+				space[robot] = 'R';
+			}
+			else if (choice == 3) {
+				space[robot] = '-';
+				robot = robot + 3;
+				space[robot] = 'R';
+			}
+			else if (choice == 4) {
+				space[robot] = '-';
+				robot = robot + 5;
+				space[robot] = 'R';
+			}
+		}
+		stepClock++;
+	}
+	else {
+		if (space[1] == 'R' || space[13] == 'R' || space[4] == 'R' || space[16] == 'R') {
+			if (space[1] == 'R') {
+				int choice = (rand() % 2) + 1;
+				if (choice == 1) {
+					space[robot] = '-';
+					robot = robot + 1;
+					space[robot] = 'R';
+				}
+				else {
+					space[robot] = '-';
+					robot = robot + 4;
+					space[robot] = 'R';
+				}
+			}
+			else if (space[13] == 'R') {
+				int choice = (rand() % 2) + 1;
+				if (choice == 1) {
+					space[robot] = '-';
+					robot = robot + 1;
+					space[robot] = 'R';
+				}
+				else {
+					space[robot] = '-';
+					robot = robot - 4;
+					space[robot] = 'R';
+				}
+			}
+			else if (space[4] == 'R') {
+				int choice = (rand() % 2) + 1;
+				if (choice == 1) {
+					space[robot] = '-';
+					robot = robot - 1;
+					space[robot] = 'R';
+				}
+				else {
+					space[robot] = '-';
+					robot = robot + 4;
+					space[robot] = 'R';
+				}
+			}
+			else if (space[16] == 'R') {
+				int choice = (rand() % 2) + 1;
+				if (choice == 1) {
+					space[robot] = '-';
+					robot = robot - 1;
+					space[robot] = 'R';
+				}
+				else {
+					space[robot] = '-';
+					robot = robot - 4;
+					space[robot] = 'R';
+				}
+			}
+		}
+		else if (space[2] == 'R' || space[3] == 'R' || space[14] == 'R' || space[15] == 'R') {
+			if (space[2] == 'R' || space[3] == 'R') {
+				int choice = (rand() % 3) + 1;
+				if (choice == 1) {
+					space[robot] = '-';
+					robot = robot - 1;
+					space[robot] = 'R';
+				}
+				else if (choice == 2) {
+					space[robot] = '-';
+					robot = robot + 1;
+					space[robot] = 'R';
+				}
+				else {
+					space[robot] = '-';
+					robot = robot + 4;
+					space[robot] = 'R';
+				}
+			}
+			else {
+				int choice = (rand() % 3) + 1;
+				if (choice == 1) {
+					space[robot] = '-';
+					robot = robot - 1;
+					space[robot] = 'R';
+				}
+				else if (choice == 2) {
+					space[robot] = '-';
+					robot = robot + 1;
+					space[robot] = 'R';
+				}
+				else {
+					space[robot] = '-';
+					robot = robot - 4;
+					space[robot] = 'R';
+				}
+			}
+		}
+		else if (space[5] == 'R' || space[9] == 'R' || space[8] == 'R' || space[12] == 'R') {
+			if (space[5] == 'R' || space[9] == 'R') {
+				int choice = (rand() % 3) + 1;
+				if (choice == 1) {
+					space[robot] = '-';
+					robot = robot + 1;
+					space[robot] = 'R';
+				}
+				else if (choice == 2) {
+					space[robot] = '-';
+					robot = robot + 4;
+					space[robot] = 'R';
+				}
+				else if (choice == 2) {
+					space[robot] = '-';
+					robot = robot - 4;
+					space[robot] = 'R';
+				}
+			}
+			else if (space[8] == 'R' || space[12] == 'R') {
+				int choice = (rand() % 3) + 1;
+				if (choice == 1) {
+					space[robot] = '-';
+					robot = robot - 1;
+					space[robot] = 'R';
+				}
+				else if (choice == 2) {
+					space[robot] = '-';
+					robot = robot + 4;
+					space[robot] = 'R';
+				}
+				else if (choice == 2) {
+					space[robot] = '-';
+					robot = robot - 4;
+					space[robot] = 'R';
+				}
+			}
+		}
+		else {
+			int choice = (rand() % 4) + 1;
+			if (choice == 1) {
+				space[robot] = '-';
+				robot = robot - 1;
+				space[robot] = 'R';
+			}
+			else if (choice == 2) {
+				space[robot] = '-';
+				robot = robot + 1;
+				space[robot] = 'R';
+			}
+			else if (choice == 3) {
+				space[robot] = '-';
+				robot = robot - 4;
+				space[robot] = 'R';
+			}
+			else if (choice == 4) {
+				space[robot] = '-';
+				robot = robot + 4;
+				space[robot] = 'R';
+			}
+		}
+		stepClock--;
+	}
+	board();
+}
+
+void MoveBomb1() {
+	srand(time(0));
+	if (stepClock == 1) {
+		if (space[1] == 'B' || space[13] == 'B') {
+			if (space[1] == 'B') {
+				space[bomb1] = '-';
+				bomb1 = bomb1 + 5;
+				space[bomb1] = 'B';
+			}
+			else {
+				space[bomb1] = '-';
+				bomb1 = bomb1 - 3;
+				space[bomb1] = 'B';
+			}
+		}
+		else if (space[4] == 'B' || space[16] == 'B') {
+			if (space[4] == 'B') {
+				space[bomb1] = '-';
+				bomb1 = bomb1 + 3;
+				space[bomb1] = 'B';
+			}
+			else {
+				space[bomb1] = '-';
+				bomb1 = bomb1 - 5;
+				space[bomb1] = 'B';
+			}
+		}
+		else if (space[5] == 'B' || space[9] == 'B') {
+			int choice = (rand() % 2) + 1;
+			if (choice == 1) {
+				space[bomb1] = '-';
+				bomb1 = bomb1 - 3;
+				space[bomb1] = 'B';
+			}
+			else {
+				space[bomb1] = '-';
+				bomb1 = bomb1 + 5;
+				space[bomb1] = 'B';
+			}
+		}
+		else if (space[8] == 'B' || space[12] == 'B') {
+			int choice = (rand() % 2) + 1;
+			if (choice == 1) {
+				space[bomb1] = '-';
+				bomb1 = bomb1 - 5;
+				space[bomb1] = 'B';
+			}
+			else {
+				space[bomb1] = '-';
+				bomb1 = bomb1 + 3;
+				space[bomb1] = 'B';
+			}
+		}
+		else if (space[2] == 'B' || space[3] == 'B') {
+			int choice = (rand() % 2) + 1;
+			if (choice == 1) {
+				space[bomb1] = '-';
+				bomb1 = bomb1 + 3;
+				space[bomb1] = 'B';
+			}
+			else {
+				space[bomb1] = '-';
+				bomb1 = bomb1 + 5;
+				space[bomb1] = 'B';
+			}
+		}
+		else if (space[14] == 'B' || space[15] == 'B') {
+			int choice = (rand() % 2) + 1;
+			if (choice == 1) {
+				space[bomb1] = '-';
+				bomb1 = bomb1 - 3;
+				space[bomb1] = 'B';
+			}
+			else {
+				space[bomb1] = '-';
+				bomb1 = bomb1 - 5;
+				space[bomb1] = 'B';
+			}
+		}
+		else {
+			int choice = (rand() % 4) + 1;
+			if (choice == 1) {
+				space[bomb1] = '-';
+				bomb1 = bomb1 - 5;
+				space[bomb1] = 'B';
+			}
+			else if (choice == 2) {
+				space[bomb1] = '-';
+				bomb1 = bomb1 - 3;
+				space[bomb1] = 'B';
+			}
+			else if (choice == 3) {
+				space[bomb1] = '-';
+				bomb1 = bomb1 + 3;
+				space[bomb1] = 'B';
+			}
+			else if (choice == 4) {
+				space[bomb1] = '-';
+				bomb1 = bomb1 + 5;
+				space[bomb1] = 'B';
+			}
+		}
+	}
+	else {
+		if (space[1] == 'B' || space[13] == 'B' || space[4] == 'B' || space[16] == 'B') {
+			if (space[1] == 'B') {
+				int choice = (rand() % 2) + 1;
+				if (choice == 1) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 + 1;
+					space[bomb1] = 'B';
+				}
+				else {
+					space[bomb1] = '-';
+					bomb1 = bomb1 + 4;
+					space[bomb1] = 'B';
+				}
+			}
+			else if (space[13] == 'B') {
+				int choice = (rand() % 2) + 1;
+				if (choice == 1) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 + 1;
+					space[bomb1] = 'B';
+				}
+				else {
+					space[bomb1] = '-';
+					bomb1 = bomb1 - 4;
+					space[bomb1] = 'B';
+				}
+			}
+			else if (space[4] == 'B') {
+				int choice = (rand() % 2) + 1;
+				if (choice == 1) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 - 1;
+					space[bomb1] = 'B';
+				}
+				else {
+					space[bomb1] = '-';
+					bomb1 = bomb1 + 4;
+					space[bomb1] = 'B';
+				}
+			}
+			else if (space[16] == 'B') {
+				int choice = (rand() % 2) + 1;
+				if (choice == 1) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 - 1;
+					space[bomb1] = 'B';
+				}
+				else {
+					space[bomb1] = '-';
+					bomb1 = bomb1 - 4;
+					space[bomb1] = 'B';
+				}
+			}
+		}
+		else if (space[2] == 'B' || space[3] == 'B' || space[14] == 'B' || space[15] == 'B') {
+			if (space[2] == 'B' || space[3] == 'B') {
+				int choice = (rand() % 3) + 1;
+				if (choice == 1) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 - 1;
+					space[bomb1] = 'B';
+				}
+				else if (choice == 2) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 + 1;
+					space[bomb1] = 'B';
+				}
+				else {
+					space[bomb1] = '-';
+					bomb1 = bomb1 + 4;
+					space[bomb1] = 'B';
+				}
+			}
+			else {
+				int choice = (rand() % 3) + 1;
+				if (choice == 1) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 - 1;
+					space[bomb1] = 'B';
+				}
+				else if (choice == 2) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 + 1;
+					space[bomb1] = 'B';
+				}
+				else {
+					space[bomb1] = '-';
+					bomb1 = bomb1 - 4;
+					space[bomb1] = 'B';
+				}
+			}
+		}
+		else if (space[5] == 'B' || space[9] == 'B' || space[8] == 'B' || space[12] == 'B') {
+			if (space[5] == 'B' || space[9] == 'B') {
+				int choice = (rand() % 3) + 1;
+				if (choice == 1) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 + 1;
+					space[bomb1] = 'B';
+				}
+				else if (choice == 2) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 + 4;
+					space[bomb1] = 'B';
+				}
+				else if (choice == 2) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 - 4;
+					space[bomb1] = 'B';
+				}
+			}
+			else if (space[8] == 'B' || space[12] == 'B') {
+				int choice = (rand() % 3) + 1;
+				if (choice == 1) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 - 1;
+					space[bomb1] = 'B';
+				}
+				else if (choice == 2) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 + 4;
+					space[bomb1] = 'B';
+				}
+				else if (choice == 2) {
+					space[bomb1] = '-';
+					bomb1 = bomb1 - 4;
+					space[bomb1] = 'B';
+				}
+			}
+		}
+		else {
+			int choice = (rand() % 4) + 1;
+			if (choice == 1) {
+				space[bomb1] = '-';
+				bomb1 = bomb1 - 1;
+				space[bomb1] = 'B';
+			}
+			else if (choice == 2) {
+				space[bomb1] = '-';
+				bomb1 = bomb1 + 1;
+				space[bomb1] = 'B';
+			}
+			else if (choice == 3) {
+				space[bomb1] = '-';
+				bomb1 = bomb1 - 4;
+				space[bomb1] = 'B';
+			}
+			else if (choice == 4) {
+				space[bomb1] = '-';
+				bomb1 = bomb1 + 4;
+				space[bomb1] = 'B';
+			}
+		}
+	}
+	board();
+}
+
+void Movebomb2() {
+	srand(time(0));
+	if (stepClock == 1) {
+		if (space[1] == 'B' || space[13] == 'B') {
+			if (space[1] == 'B') {
+				space[bomb2] = '-';
+				bomb2 = bomb2 + 5;
+				space[bomb2] = 'B';
+			}
+			else {
+				space[bomb2] = '-';
+				bomb2 = bomb2 - 3;
+				space[bomb2] = 'B';
+			}
+		}
+		else if (space[4] == 'B' || space[16] == 'B') {
+			if (space[4] == 'B') {
+				space[bomb2] = '-';
+				bomb2 = bomb2 + 3;
+				space[bomb2] = 'B';
+			}
+			else {
+				space[bomb2] = '-';
+				bomb2 = bomb2 - 5;
+				space[bomb2] = 'B';
+			}
+		}
+		else if (space[5] == 'B' || space[9] == 'B') {
+			int choice = (rand() % 2) + 1;
+			if (choice == 1) {
+				space[bomb2] = '-';
+				bomb2 = bomb2 - 3;
+				space[bomb2] = 'B';
+			}
+			else {
+				space[bomb2] = '-';
+				bomb2 = bomb2 + 5;
+				space[bomb2] = 'B';
+			}
+		}
+		else if (space[8] == 'B' || space[12] == 'B') {
+			int choice = (rand() % 2) + 1;
+			if (choice == 1) {
+				space[bomb2] = '-';
+				bomb2 = bomb2 - 5;
+				space[bomb2] = 'B';
+			}
+			else {
+				space[bomb2] = '-';
+				bomb2 = bomb2 + 3;
+				space[bomb2] = 'B';
+			}
+		}
+		else if (space[2] == 'B' || space[3] == 'B') {
+			int choice = (rand() % 2) + 1;
+			if (choice == 1) {
+				space[bomb2] = '-';
+				bomb2 = bomb2 + 3;
+				space[bomb2] = 'B';
+			}
+			else {
+				space[bomb2] = '-';
+				bomb2 = bomb2 + 5;
+				space[bomb2] = 'B';
+			}
+		}
+		else if (space[14] == 'B' || space[15] == 'B') {
+			int choice = (rand() % 2) + 1;
+			if (choice == 1) {
+				space[bomb2] = '-';
+				bomb2 = bomb2 - 3;
+				space[bomb2] = 'B';
+			}
+			else {
+				space[bomb2] = '-';
+				bomb2 = bomb2 - 5;
+				space[bomb2] = 'B';
+			}
+		}
+		else {
+			int choice = (rand() % 4) + 1;
+			if (choice == 1) {
+				space[bomb2] = '-';
+				bomb2 = bomb2 - 5;
+				space[bomb2] = 'B';
+			}
+			else if (choice == 2) {
+				space[bomb2] = '-';
+				bomb2 = bomb2 - 3;
+				space[bomb2] = 'B';
+			}
+			else if (choice == 3) {
+				space[bomb2] = '-';
+				bomb2 = bomb2 + 3;
+				space[bomb2] = 'B';
+			}
+			else if (choice == 4) {
+				space[bomb2] = '-';
+				bomb2 = bomb2 + 5;
+				space[bomb2] = 'B';
+			}
+		}
+	}
+	else {
+		if (space[1] == 'B' || space[13] == 'B' || space[4] == 'B' || space[16] == 'B') {
+			if (space[1] == 'B') {
+				int choice = (rand() % 2) + 1;
+				if (choice == 1) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 + 1;
+					space[bomb2] = 'B';
+				}
+				else {
+					space[bomb2] = '-';
+					bomb2 = bomb2 + 4;
+					space[bomb2] = 'B';
+				}
+			}
+			else if (space[13] == 'B') {
+				int choice = (rand() % 2) + 1;
+				if (choice == 1) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 + 1;
+					space[bomb2] = 'B';
+				}
+				else {
+					space[bomb2] = '-';
+					bomb2 = bomb2 - 4;
+					space[bomb2] = 'B';
+				}
+			}
+			else if (space[4] == 'B') {
+				int choice = (rand() % 2) + 1;
+				if (choice == 1) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 - 1;
+					space[bomb2] = 'B';
+				}
+				else {
+					space[bomb2] = '-';
+					bomb2 = bomb2 + 4;
+					space[bomb2] = 'B';
+				}
+			}
+			else if (space[16] == 'B') {
+				int choice = (rand() % 2) + 1;
+				if (choice == 1) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 - 1;
+					space[bomb2] = 'B';
+				}
+				else {
+					space[bomb2] = '-';
+					bomb2 = bomb2 - 4;
+					space[bomb2] = 'B';
+				}
+			}
+		}
+		else if (space[2] == 'B' || space[3] == 'B' || space[14] == 'B' || space[15] == 'B') {
+			if (space[2] == 'B' || space[3] == 'B') {
+				int choice = (rand() % 3) + 1;
+				if (choice == 1) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 - 1;
+					space[bomb2] = 'B';
+				}
+				else if (choice == 2) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 + 1;
+					space[bomb2] = 'B';
+				}
+				else {
+					space[bomb2] = '-';
+					bomb2 = bomb2 + 4;
+					space[bomb2] = 'B';
+				}
+			}
+			else {
+				int choice = (rand() % 3) + 1;
+				if (choice == 1) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 - 1;
+					space[bomb2] = 'B';
+				}
+				else if (choice == 2) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 + 1;
+					space[bomb2] = 'B';
+				}
+				else {
+					space[bomb2] = '-';
+					bomb2 = bomb2 - 4;
+					space[bomb2] = 'B';
+				}
+			}
+		}
+		else if (space[5] == 'B' || space[9] == 'B' || space[8] == 'B' || space[12] == 'B') {
+			if (space[5] == 'B' || space[9] == 'B') {
+				int choice = (rand() % 3) + 1;
+				if (choice == 1) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 + 1;
+					space[bomb2] = 'B';
+				}
+				else if (choice == 2) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 + 4;
+					space[bomb2] = 'B';
+				}
+				else if (choice == 2) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 - 4;
+					space[bomb2] = 'B';
+				}
+			}
+			else if (space[8] == 'B' || space[12] == 'B') {
+				int choice = (rand() % 3) + 1;
+				if (choice == 1) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 - 1;
+					space[bomb2] = 'B';
+				}
+				else if (choice == 2) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 + 4;
+					space[bomb2] = 'B';
+				}
+				else if (choice == 2) {
+					space[bomb2] = '-';
+					bomb2 = bomb2 - 4;
+					space[bomb2] = 'B';
+				}
+			}
+		}
+		else {
+			int choice = (rand() % 4) + 1;
+			if (choice == 1) {
+				space[bomb2] = '-';
+				bomb2 = bomb2 - 1;
+				space[bomb2] = 'B';
+			}
+			else if (choice == 2) {
+				space[bomb2] = '-';
+				bomb2 = bomb2 + 1;
+				space[bomb2] = 'B';
+			}
+			else if (choice == 3) {
+				space[bomb2] = '-';
+				bomb2 = bomb2 - 4;
+				space[bomb2] = 'B';
+			}
+			else if (choice == 4) {
+				space[bomb2] = '-';
+				bomb2 = bomb2 + 4;
+				space[bomb2] = 'B';
+			}
+		}
+	}
+	board();
+}
+
+
+int main() {
+	
+
+	spawnPlayers();
+	MoveRobot();
+	MoveRobot();
+	MoveBomb1();
+	MoveRobot();
+	MoveRobot();
+	Movebomb2();
+
+
+	return 0;
+}
