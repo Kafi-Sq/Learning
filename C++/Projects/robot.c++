@@ -86,7 +86,7 @@ void startGame() {
 int gameEnd(int robot, int Bomb1, int Bomb2) {
 	if (robot == GoldBar1 || robot == GoldBar2) {
 		TotalGold++;
-		if(TotalGold >= 2){
+		if (TotalGold >= 2) {
 			gameWon = 1;
 			gameOver = 1;
 		}
@@ -913,7 +913,7 @@ int main() {
 
 	if (gameOver == 1) {
 		cout << "Gold Collected: " << TotalGold << endl;
-		cout << "Game Over! The Robot has hit a bomb."  << endl;
+		cout << "Game Over! The Robot has hit a bomb." << endl;
 	}
 	if (gameWon == 1) {
 		cout << "Congratulations! The Robot has collected " << TotalGold << endl;
