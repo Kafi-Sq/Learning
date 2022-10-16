@@ -1,18 +1,26 @@
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <thread>
+#include <mutex>
 
 using namespace std;
 
 char space[17] = { 'o', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-' };
 
 int stepClock = 1;
-int bombClock = 1;
+int bombClock = 0;
+int moveb1 = 0;
 int robot;
 int bomb1, bomb2;
+int gold1, gold2;
+int goldCollected = 0;
+int gameOver, gameWon = 0;
+int wizard = 0;
+
 
 void board() {
-	
+
 	cout << "t = " << stepClock << endl;
 	cout << endl;
 
@@ -32,32 +40,62 @@ void spawnPlayers() {
 	robot = (rand() % 16) + 1;
 	bomb1 = (rand() % 16) + 1;
 	bomb2 = (rand() % 16) + 1;
+	gold1 = (rand() % 16) + 1;
+	gold2 = (rand() % 16) + 1;
 
-	if (bomb1 == robot) {
+	if (robot == bomb1 || robot == bomb2 || robot == gold1 || robot == gold2) {
+		do {
+			robot = (rand() % 16) + 1;
+		} while (robot != bomb1 && robot != bomb2 && robot != gold1 && robot != gold2);
+	}
+
+	if (bomb1 == robot || bomb1 == bomb2 || bomb1 == gold1 || bomb1 == gold2) {
 		do {
 			bomb1 = (rand() % 16) + 1;
-		} while (robot != bomb1);
+		} while (bomb1 != robot && bomb1 != bomb2 && bomb1 != gold1 && bomb1 != gold2);
 	}
 
-	if (bomb2 == robot) {
+	if (bomb2 == robot || bomb2 == bomb1 || bomb2 == gold1 || bomb2 == gold2) {
 		do {
 			bomb2 = (rand() % 16) + 1;
-		} while (robot != bomb2);
+		} while (bomb2 != robot && bomb2 != bomb1 && bomb2 != gold1 && bomb2 != gold2);
 	}
 
-	if (bomb2 == bomb1) {
+	if (gold1 == robot || gold1 == bomb1 || gold1 == bomb2 || gold1 == gold2) {
 		do {
-			bomb2 = (rand() % 16) + 1;
-		} while (robot != bomb2);
+			gold1 = (rand() % 16) + 1;
+		} while (gold1 != robot && gold1 != bomb1 && gold1 != bomb2 && gold1 != gold2);
 	}
-	
+
+	if (gold2 == robot || gold2 == bomb1 || gold2 == bomb2 || gold2 == gold1) {
+		do {
+			gold2 = (rand() % 16) + 1;
+		} while (gold2 != robot && gold2 != bomb1 && gold2 != bomb2 && gold2 != gold1);
+	}
 
 	space[robot] = 'R';
 	space[bomb1] = 'B';
 	space[bomb2] = 'B';
+	space[gold1] = 'G';
+	space[gold2] = 'G';
 
 	board();
 
+}
+
+int endGame(int robot, int bomb1, int bomb2) {
+	if (robot == gold1 || robot == gold2) {
+		goldCollected++;
+		if(goldCollected >= 2){
+			gameWon = 1;
+			gameOver = 1;
+		}
+	}
+	if (robot == bomb1 || robot == bomb2) {
+		gameOver = 1;
+		return 1;
+	}
+	return 0;
 }
 
 void MoveRobot() {
@@ -74,7 +112,7 @@ void MoveRobot() {
 				robot = robot - 3;
 				space[robot] = 'R';
 			}
-		} 
+		}
 		else if (space[4] == 'R' || space[16] == 'R') {
 			if (space[4] == 'R') {
 				space[robot] = '-';
@@ -86,7 +124,7 @@ void MoveRobot() {
 				robot = robot - 5;
 				space[robot] = 'R';
 			}
-		} 
+		}
 		else if (space[5] == 'R' || space[9] == 'R') {
 			int choice = (rand() % 2) + 1;
 			if (choice == 1) {
@@ -99,7 +137,7 @@ void MoveRobot() {
 				robot = robot + 5;
 				space[robot] = 'R';
 			}
-		} 
+		}
 		else if (space[8] == 'R' || space[12] == 'R') {
 			int choice = (rand() % 2) + 1;
 			if (choice == 1) {
@@ -112,7 +150,7 @@ void MoveRobot() {
 				robot = robot + 3;
 				space[robot] = 'R';
 			}
-		} 
+		}
 		else if (space[2] == 'R' || space[3] == 'R') {
 			int choice = (rand() % 2) + 1;
 			if (choice == 1) {
@@ -125,7 +163,7 @@ void MoveRobot() {
 				robot = robot + 5;
 				space[robot] = 'R';
 			}
-		} 
+		}
 		else if (space[14] == 'R' || space[15] == 'R') {
 			int choice = (rand() % 2) + 1;
 			if (choice == 1) {
@@ -320,7 +358,10 @@ void MoveRobot() {
 		}
 		stepClock--;
 	}
+	bombClock++;
 	board();
+	wizard++;
+	endGame(robot, bomb1, bomb2);
 }
 
 void MoveBomb1() {
@@ -581,7 +622,6 @@ void MoveBomb1() {
 			}
 		}
 	}
-	board();
 }
 
 void Movebomb2() {
@@ -842,21 +882,44 @@ void Movebomb2() {
 			}
 		}
 	}
-	board();
 }
 
 
 int main() {
-	
-
 	spawnPlayers();
-	MoveRobot();
-	MoveRobot();
-	MoveBomb1();
-	MoveRobot();
-	MoveRobot();
-	Movebomb2();
+	while (gameOver != 1) {
+		if (wizard == 5) {
+			thread t4(spawnPlayers);
+			wizard = 0;
+			cout << "Wizard has changed the board!" << endl;
+			t4.join();
+		}
+		thread t1(MoveRobot);
+		if (bombClock == 2) {
+			if (moveb1 == 0) {
+				thread t2(MoveBomb1);
+				moveb1 = 1;
+				t2.join();
+			}
+			else {
+				thread t3(Movebomb2);
+				moveb1 = 0;
+				t3.join();
+			}
+			bombClock = 0;
+		}
+		t1.join();
+	}
 
+
+	cout << "Gold Collected: " << goldCollected << endl;
+
+	if (gameOver == 1) {
+		cout << "Game Over!" << endl;
+	}
+	if (gameWon == 1) {
+		cout << "Congratulations!!!" << endl;
+	}
 
 	return 0;
 }
