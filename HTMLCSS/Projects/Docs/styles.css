@@ -1,0 +1,58 @@
+body {
+    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+    width: 200px;
+    height: 400px;
+}
+
+.left h3 {
+    margin: 8px 10px;
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.left p {
+    font-size: 16px;
+    margin: 8px 10px;
+    color: rgb(85, 131, 218);
+}
+
+.right {
+    flex: 1;
+}
+
+.right h3 {
+    margin: 8px 10px;
+    font-size: 24px;
+    font-weight: normal;
+    background-color: black;
+    color: white;
+}
+
+.right p {
+    font-size: 18px;
+    margin: 12px 10px;
+}
+
+.right li {
+    font-size: 16px;
+}
+
+.code {
+    font-family: monospace;
+    font-size: 14px;
+    color: rgb(241, 87, 87);
+    background-color: rgb(223, 223, 223);
+    padding: 3px 3px;
+    border-radius: 2px;
+}
