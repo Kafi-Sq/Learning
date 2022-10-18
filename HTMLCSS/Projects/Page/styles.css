@@ -36,7 +36,7 @@ ul {
 }
 
 li {
-    margin: 0 10px;
+    margin: 0 20px;
     cursor: pointer;
 }
 
@@ -108,4 +108,10 @@ p {
     color: #1dddbc;
     cursor: pointer;
     margin-top: 20px;
+    transition: background-color 0.4s, color 0.4s;
+}
+
+.text button:hover{
+    background-color: #1dddbc;
+    color: black;
 }
