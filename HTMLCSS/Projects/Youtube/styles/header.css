@@ -9,6 +9,7 @@
     right: 0;
     background-color: white;
     border-bottom: 1px solid rgb(223, 223, 223);
+    z-index: 100;
 }
 
 .leftSection {
@@ -98,6 +99,22 @@
 
 .notiss {
     height: 24px;
+}
+
+.notisContainer {
+    position: relative;
+}
+
+.notisCount {
+    position: absolute;
+    top: -2px;
+    right: -5px;
+    background-color: rgb(218, 4, 4);
+    color: white;
+    font-family: Roboto, Arial;
+    font-size: 11px;
+    padding: 2px 5px;
+    border-radius: 50%;
 }
 
 .user {

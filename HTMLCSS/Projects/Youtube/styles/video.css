@@ -40,5 +40,19 @@
 }
 
 .thumRow {
-    margin-bottom: 10px;
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.videoTime {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    padding: 5px 5px;
+    font-size: 12px;
+    font-weight: 500;
+    border-radius: 2px;
+    font-family: Roboto, Arial;
 }
