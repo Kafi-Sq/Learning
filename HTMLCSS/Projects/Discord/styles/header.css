@@ -1,0 +1,112 @@
+header {
+    position: relative;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items:flex-start
+}
+
+.logoContainer {
+    margin-left: 8px;
+}
+
+.top img {
+    height: 22px;
+}
+
+.topButtons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+}
+
+.topButtons div {
+    width: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.topButtons p {
+    margin: 0;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.topButtons .center {
+    margin-bottom: 10px;
+}
+
+.topButtons div:hover {
+    background-color: rgb(66,69,73);
+}
+
+.topButtons .hoverRed:hover {
+    background-color: rgb(238, 73, 73);
+}
+
+.sidebarMain {
+    position: absolute;
+    left: 0;
+    top: 18px;
+    bottom: 0;
+    width: 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sidebarMain div {
+    background-color: rgb(66,69,73);
+    width: 50px;
+    margin: 6px 0;
+    text-align: center;
+    color: rgb(218, 218, 218);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.sidebarMain div p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.sidebarMain div:hover {
+    background-color: #5865F2;
+    border-radius: 35%;
+}
+
+.sidebarMain div .hoverLine {
+    position: absolute;
+    background-color: white;
+    width: 5px;
+    height: 18px;
+    border-radius: 0;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    top: 12px;
+    left: -13px;
+    opacity: 0;
+    transition: all 0.15s;
+    pointer-events: none;
+}
+
+.sidebarMain div:hover .hoverLine {
+    opacity: 1;
+}
+
+.sidebarMain .active {
+    background-color: #5865F2;
+    border-radius: 35%;
+}
+
+.sidebarMain .active .hoverLine {
+    opacity: 1;
+    height: 38px;
+    top: 0;
+}
