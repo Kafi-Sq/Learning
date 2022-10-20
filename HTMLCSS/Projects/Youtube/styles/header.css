@@ -38,14 +38,19 @@
 }
 
 .searchIcon {
-    margin-top: 4px;
-    height: 25px;
-    
+    height: 24px;
 }
 
 .search::placeholder {
     font-family: Roboto, Arial;
     font-size: 15px;
+}
+
+.searchBut, .voiceBut, .iconContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .searchBut {
@@ -58,6 +63,25 @@
     margin-right: 10px;
 }
 
+.searchBut div, .voiceBut div, .iconContainer div {
+    font-family: Roboto, Arial;
+    position: absolute;
+    background-color: gray;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 2px;
+    font-size: 12px;
+    bottom: -30px;
+    opacity: 0;
+    transition: opacity 0.1s;
+    pointer-events: none;
+    white-space: noWrap;
+}
+
+.searchBut:hover div, .voiceBut:hover div, .iconContainer:hover div {
+    opacity: 1;
+}
+
 .voiceBut {
     height: 40px;
     width: 40px;
@@ -68,7 +92,6 @@
 
 .voiceIcon {
     height: 24px;
-    margin-top: 4px;
 }
 
 .rightSection {

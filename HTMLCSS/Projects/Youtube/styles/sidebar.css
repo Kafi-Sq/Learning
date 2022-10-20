@@ -5,5 +5,30 @@
     top: 55px;
     width: 72px;
     background-color: white;
-    border-top: 1px solid rgb(223, 223, 223);
+    z-index: 200;
+    padding-top: 5px;
+}
+
+.sideIcon {
+    height: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.sideIcon:hover {
+    background-color: rgb(235, 235, 235);
+}
+
+.sideIcon img {
+    height: 25px;
+    margin-bottom: 4px;
+}
+
+.sidebar div {
+    font-family: Roboto, Arial;
+    font-size: 10px;
+
 }
