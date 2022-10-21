@@ -5,7 +5,8 @@ header {
 .top {
     display: flex;
     justify-content: space-between;
-    align-items:flex-start
+    align-items:flex-start;
+    height: 20px;
 }
 
 .logoContainer {
@@ -119,4 +120,34 @@ header {
     opacity: 1;
     height: 38px;
     top: 0;
+}
+
+.sidebarMain div .altText {
+    position: absolute;
+    background-color: rgb(21, 21, 21);
+    color: white;
+    width: 170px;
+    border-radius: 15px;
+    text-align: start;
+    border-radius: 4px;
+    top: 0;
+    right: -185px;
+    opacity: 0;
+    transition: all 0.15s;
+    pointer-events: none;
+}
+
+.sidebarMain div .raiseTop {
+    top: -5px;
+}
+
+.sidebarMain div:hover .altText {
+    opacity: 1;
+}
+
+.sidebarMain div .altText p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 0 10px 5px;
 }
