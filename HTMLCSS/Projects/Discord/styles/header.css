@@ -81,6 +81,16 @@ header {
     border-radius: 35%;
 }
 
+.sidebarMain .greenHover {
+    color: #0cc747;
+    transition: all 0.3s;
+}
+
+.sidebarMain .greenHover:hover {
+    background-color: #0cc747;
+    color: white;
+}
+
 .sidebarMain div .hoverLine {
     position: absolute;
     background-color: white;
