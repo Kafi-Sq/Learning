@@ -1,8 +1,15 @@
 header {
-    position: relative;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 4px;
 }
 
 .top {
+    position: fixed;
+    top: 4px;
+    left: 4px;
+    right: 5px;
     display: flex;
     justify-content: space-between;
     align-items:flex-start;
