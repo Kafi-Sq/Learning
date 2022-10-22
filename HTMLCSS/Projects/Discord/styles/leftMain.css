@@ -1,0 +1,205 @@
+.leftMain {
+    width: 240px;
+}
+
+.leftMain .leftHead {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #1a1c1d;
+    padding: 14px;
+    cursor: pointer;
+    transition: all 0.1s;
+    
+}
+
+.leftMain .leftHead p {
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.leftMain .leftHead:hover {
+    background-color: #313233;
+    border-top-left-radius: 10px;
+}
+
+.urServer {
+    padding: 10px 4px;
+    text-align: center;
+    border-bottom: 1px solid #464646;
+}
+
+.urServer .close {
+    color: rgb(199, 199, 199);
+    margin: 0;
+    margin-right: 14px;
+    text-align: end;
+    cursor: pointer;
+}
+
+.urServer img {
+    height: 85px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.urServer p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 20px;
+    color: rgb(197, 197, 197);
+}
+
+.urServer .boosts {
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.urServer button {
+    width: 90%;
+    padding: 8px 0;
+    font-size: 14px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background-color: #5d69e9;
+    transition: all 0.1s;
+    margin-bottom: 8px;
+}
+
+.urServer button:hover {
+    background-color: #4d5bec;
+}
+
+.channels .channelHead{
+    display: flex;
+    color: rgb(146, 146, 146);
+    text-transform: uppercase;
+    font-size: 12px;
+    gap: 4px;
+    margin: 15px 0 0px 4px;
+    align-items: center;
+}
+
+
+.channels .channelInfo {
+    display: flex;
+    justify-content: space-between;
+    color: rgb(146, 146, 146);
+    padding: 8px 4px;
+    margin-left: 14px;
+    cursor: pointer;
+    align-items: center;
+    transition: all 0.1s;
+}
+
+.channelInfo .firstChannelInfo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.channelInfo .firstChannelInfo p{
+    margin: 0;
+    font-size: 14px;
+}
+
+.channelInfo .firstChannelInfo i {
+    margin-left: 4px;
+}
+
+.active .fa-user-plus:before{
+    opacity: 1;
+}
+
+.active p, .active i{
+    color: white;
+}
+
+.active{
+    background-color: #313233;
+    border-radius: 4px;
+    color: white;
+}
+
+.fa-hashtag:before {
+    font-size: 18px;
+}
+
+.fa-user-plus:before {
+    font-size: 13px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.channels .channelInfo:hover {
+    background-color: #313233;
+    border-radius: 4px;
+    color: white;
+}
+
+.channels .channelInfo:hover .fa-user-plus:before {
+    opacity: 1;
+}
+
+.cap {
+    text-transform: capitalize;
+}
+
+.currUser {
+    position: absolute;
+    bottom: 26px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #212425;
+    padding: 6px;
+}
+
+.currUser .currUserLeft {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.currUser .currUserLeft img{
+    height: 40px;
+    border-radius: 50%;
+}
+
+.currUser .currUserLeft p{
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 6px;
+}
+
+.currUserLeft .currUserText .numbers{
+    font-size: 12px;
+    font-weight: normal;
+    color: rgb(146, 146, 146);
+}
+
+.currUser .currUserLeft:hover {
+    background-color: #323738;
+    border-radius: 4px;
+}
+
+.currUser .currUserIcons {
+    color: white;
+}
+
+.currUser .currUserIcons i {
+    padding: 8px;
+    cursor: pointer;
+}
+.currUser .currUserIcons i:hover {
+    background-color: #323738;
+    border-radius: 4px;
+}

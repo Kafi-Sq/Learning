@@ -3,8 +3,8 @@ body {
     padding-left: 75px;
     padding-top: 26px;
     box-sizing: border-box;
-    background-color: #191c1e;
+    background-color: #202225;
     font-family: sans-serif;
     overflow: hidden;
-    height: 100vh;
+    position: relative;
 }
