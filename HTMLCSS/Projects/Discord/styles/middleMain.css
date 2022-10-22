@@ -1,64 +1,22 @@
-.middleHeader {
-    display: flex;
-    justify-content: space-between;
-    position: fixed;
-    right: 0;
-    left: 315px;
+.middleMain {
     background-color: #36393F;
-    border-bottom: 1px solid #404142;
-    
+    flex: 1;
+    margin-top: 48px;
+    overflow: scroll;
 }
 
-.middleHeader .headerTitle {
-    color: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 14px;
+::-webkit-scrollbar {
+    width: 8px;
 }
 
-.headerTitle p {
-    font-weight: bold;
-    margin: 0;
-}
-
-.headerTitle i {
-    margin-right: 10px;
-    color: rgb(146, 146, 146);
-}
-
-.middleHeader .middleIcons {
-    display: flex;
-    align-items: center;
-}
-
-.middleIcons i {
-    color: rgb(245, 245, 245);
-    margin-right: 25px;
-    cursor: pointer;
-}
-
-.fa-download:before {
-    color: rgb(51, 218, 51);
-}
-
-.middleIcons input {
-    padding: 3px;
-    border-radius: 4px;
-    border: none;
-    width: 150px;
+::-webkit-scrollbar-track {
     background-color: #202225;
-    color: rgb(235, 235, 235);
-    transition: all 0.2s;
+    border-radius: 100vw;
+    margin-block: .3em;
+    margin-block-end: .8em;
 }
 
-.fa-magnifying-glass:before {
-    font-size: 12px;
-    margin-left: -20px;
-    color: rgb(182, 182, 182);
-}
-
-.middleIcons input:focus {
-    width: 200px;
-    outline: none;
+::-webkit-scrollbar-thumb {
+    background-color: #141518;
+    border-radius: 100vw;
 }

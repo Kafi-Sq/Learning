@@ -8,7 +8,7 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid #1a1c1d;
+    border-bottom: 1px solid #1a1c1d;
     padding: 14px;
     cursor: pointer;
     transition: all 0.1s;
@@ -93,6 +93,7 @@
     color: rgb(146, 146, 146);
     padding: 8px 4px;
     margin-left: 14px;
+    margin-right: 10px;
     cursor: pointer;
     align-items: center;
     transition: all 0.1s;
@@ -122,7 +123,7 @@
 }
 
 .active{
-    background-color: #313233;
+    background-color: #42464D;
     border-radius: 4px;
     color: white;
 }
@@ -138,7 +139,7 @@
 }
 
 .channels .channelInfo:hover {
-    background-color: #313233;
+    background-color: #42464D;
     border-radius: 4px;
     color: white;
 }
@@ -157,8 +158,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #212425;
+    background-color: #292B2F;
     padding: 6px;
+    width: 228px;
 }
 
 .currUser .currUserLeft {
