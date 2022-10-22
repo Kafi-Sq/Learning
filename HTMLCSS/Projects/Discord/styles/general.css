@@ -1,9 +1,10 @@
 body {
     margin: 0;
     padding-left: 75px;
-    padding-top: 30px;
+    padding-top: 26px;
     box-sizing: border-box;
     background-color: #191c1e;
     font-family: sans-serif;
     overflow: hidden;
+    height: 100vh;
 }

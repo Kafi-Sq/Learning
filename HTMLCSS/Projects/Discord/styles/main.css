@@ -159,3 +159,56 @@ main {
 .cap {
     text-transform: capitalize;
 }
+
+.currUser {
+    position: absolute;
+    bottom: 27px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #212425;
+    padding: 6px;
+}
+
+.currUser .currUserLeft {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding-right: 10px;
+}
+
+.currUser .currUserLeft img{
+    height: 40px;
+    border-radius: 50%;
+}
+
+.currUser .currUserLeft p{
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 6px;
+}
+
+.currUserLeft .currUserText .numbers{
+    font-size: 12px;
+    font-weight: normal;
+    color: rgb(146, 146, 146);
+}
+
+.currUser .currUserLeft:hover {
+    background-color: #323738;
+    border-radius: 4px;
+}
+
+.currUser .currUserIcons {
+    color: white;
+}
+
+.currUser .currUserIcons i {
+    padding: 8px;
+    cursor: pointer;
+}
+.currUser .currUserIcons i:hover {
+    background-color: #323738;
+    border-radius: 4px;
+}
