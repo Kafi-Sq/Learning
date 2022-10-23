@@ -3,6 +3,7 @@
     flex: 1;
     margin-top: 48px;
     overflow: scroll;
+    position: relative;
 }
 
 ::-webkit-scrollbar {
@@ -10,7 +11,7 @@
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #202225;
+    background-color: #2d3033;
     border-radius: 100vw;
     margin-block: .3em;
     margin-block-end: .8em;
@@ -20,3 +21,167 @@
     background-color: #141518;
     border-radius: 100vw;
 }
+
+.picText, .justText {
+    position: relative;
+    padding: 2px 15px;
+    display: flex;
+    align-items: center;
+    color: white;
+    margin-right: 6px;
+}
+
+.picText {
+    margin-top: 10px;
+    align-items: flex-start;
+} 
+
+.picText .picTextImg img {
+    height: 40px;
+    border-radius: 50%;
+}
+
+.picText .picTextP .name{
+    margin: 5px 0 0 15px;
+}
+.picText .picTextP .text{
+    margin: 6px 0 0 15px;
+    font-size: 14px;
+    color: rgb(230, 230, 230);
+}
+.picText .picTextP span {
+    font-size: 12px;
+    color: rgb(146, 146, 146);
+    margin-left: 4px;
+}
+
+.picText .picTextP img {
+    height: 250px;
+    margin: 10px 15px;
+    border-radius: 6px;
+}
+
+.picText:hover {
+    background-color: #32353B;
+}
+
+.picText .picTextIcons, .justText .picTextIcons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #36393F;
+    width: 130px;
+    border-radius: 4px;
+    border: 1px solid rgb(82, 82, 82);
+    position: absolute;
+    right: 10px;
+    top: -20px;
+    opacity: 0;
+}
+
+.picText .picTextIcons i, .justText .picTextIcons i {
+    padding: 6px;
+    cursor: pointer;
+}
+
+.picText .picTextIcons i:hover, .justText .picTextIcons i:hover {
+    background-color: #3c3e42;
+}
+
+.picText:hover .picTextIcons, .justText:hover .picTextIcons,
+.justText:hover .time {
+    opacity: 1;
+}
+
+.justText {
+    padding: 0 15px;
+    height: 25px;
+}
+
+.justText .time {
+    opacity: 0;
+    pointer-events: none;
+    margin: 0;
+    font-size: 10px;
+    color: rgb(146, 146, 146);
+}
+
+.justText .justTheText p{
+    margin: 0 22px;
+    font-size: 14px;
+    color: rgb(230, 230, 230);
+}
+
+.justText:hover {
+    background-color: #32353B;
+}
+
+.inputSearch {
+    position: fixed;
+    right: 280px;
+    left: 330px;
+    bottom: 15px;
+    z-index: 100;
+}
+
+.wholeSearch {
+    position: fixed;
+    right: 250px;
+    left: 315px;
+    bottom: 0px;
+    border-bottom: 40px solid #36393F;
+    z-index: 100;
+}
+
+.inputSearch input {
+    padding: 16px 35px;
+    border-radius: 8px;
+    border: none;
+    background-color: #40444B;
+    width: 95%;
+    font-size: 16px;
+    color: rgb(230, 230, 230);
+}
+
+.inputSearch i {
+    font-size: 16px;
+    color: rgb(219, 219, 219);
+    cursor: pointer;
+}
+
+.fa-circle-plus:before {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+}
+
+.fa-gift:before {
+    position: absolute;
+    top: 15px;
+    right: 115px;
+}
+
+.fa-image:before {
+    position: absolute;
+    top: 15px;
+    right: 80px;
+}
+.fa-file:before {
+    position: absolute;
+    top: 15px;
+    right: 45px;
+}
+
+.fa-meh-blank:before {
+    position: absolute;
+    top: 15px;
+    right: 10px;
+}
+.inputSearch input:focus {
+    outline: none;
+}
+
+.middleMain .last {
+    margin-bottom: 100px;
+}
+
