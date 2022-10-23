@@ -1,5 +1,61 @@
 .rightMain {
     width: 240px;
     height: 100vh;
+    padding-top: 50px;
     background-color: #2F3136;
 }
+
+.userStatus {
+    padding: 5px 20px;
+}
+
+.userStatus p {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: rgb(146, 146, 146);
+    margin-bottom: 0;
+}
+
+.rightUser {
+    display: flex;
+    padding: 5px 15px;
+    align-items: center;
+    cursor: pointer;
+    margin: 0 4px;
+    border-radius: 4px;
+    height: 40px;
+}
+
+.Offline {
+    opacity: 0.5;
+}
+
+.rightUser .rightUserName {
+    position: relative;
+}
+
+.rightUser .rightUserImg img {
+    height: 40px;
+    border-radius: 50%;
+}
+
+.rightUser .rightUserName p {
+    margin-left: 10px;
+    color: rgb(146, 146, 146);
+}
+
+.rightUser .rightUserName i {
+    color: rgb(51, 218, 51);
+    font-size: 12px;
+    position: absolute;
+    bottom: 6px;
+    left: -12px;
+    border: 3px solid #2F3136;
+    border-radius: 50%;
+}
+
+.rightUser:hover {
+    background-color: #44474d;
+    opacity: 1;
+}
+

@@ -1,5 +1,6 @@
 .leftMain {
     width: 240px;
+    z-index: 0;
 }
 
 .leftMain .leftHead {

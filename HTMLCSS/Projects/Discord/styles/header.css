@@ -150,6 +150,7 @@ header {
 
 .sidebarMain div:hover .altText {
     opacity: 1;
+    z-index: 999;
 }
 
 .sidebarMain div .altText p {
