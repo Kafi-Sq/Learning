@@ -1,0 +1,90 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial;
+}
+
+main {
+    margin: 30px 10px;
+    border-radius: 5px;
+    background-color: #EEEEEE;
+}
+
+main h1 {
+    font-size: 40px;
+    text-align: center;
+    padding-top: 52px;
+    color: rgb(44, 44, 44);
+}
+
+main p {
+    text-align: center;
+    font-size: 14px;
+}
+
+.image {
+    margin: 20px;
+    background-color: white;
+}
+
+.image img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image p {
+    margin: 0;
+    font-size: 16px;
+    padding-bottom: 20px;
+    padding-top: 16px;
+}
+
+.timeline p {
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgb(44, 44, 44);
+    padding: 40px 0;
+    margin: 0;
+}
+
+.timeline ul {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+}
+
+.timeline ul li {
+    padding: 10px 0;
+    font-size: 16px;
+    color: rgb(36, 36, 36);
+    line-height: 25px;
+}
+
+.timeline ul .date {
+    font-weight: bold;
+}
+
+.quote {
+    width: 600px;
+    font-size: 16px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: start;
+    padding: 16px 0;
+    font-style: italic;
+}
+
+.second {
+    padding-top: 0;
+}
+
+.last {
+    font-size: 20px;
+    padding-bottom: 30px;
+    font-weight: bold;
+}
