@@ -7,25 +7,23 @@
     <title>Todo</title>
 </head>
 <body>
-    <button>Press me</button>
+    <input id="todoID" type="text" />
+    <button onclick="addTodo()">Add Todo</button>
 
     <script>
-        let todo1 = 'Get groceries'
-        let todo2 = 'Wash car'
-        let todo3 = 'Make dinner'
-
         let todos = ['Get groceries', 'Wash car', 'Make dinner']
-        todos.push('New todo')
 
-        function addTodo(todo) {
+        todos.forEach(function (todoTitle) {
             let element = document.createElement('div')
-            element.innerText = todo
+            element.innerText = todoTitle
             document.body.appendChild(element)
-        }
+        });
 
-        addTodo(todo1)
-        addTodo(todo2)
-        addTodo(todo3)
+        function addTodo() {
+            let textbox = document.getElementById('todoID')
+            let title = textbox.value
+            todos.push(title)
+        }   
     </script>
 </body>
 </html>

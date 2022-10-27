@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function toUpper(strings) {
+            arr = []
+            strings.forEach(function (el) {
+                arr.push(el.toUpperCase())
+            })
+            console.log(arr)
+        }
+
+        toUpper(['hello', 'world!'])
+
+        function double(arr) {
+            newArr = []
+            arr.forEach(function (el) {
+                newArr.push(el)
+                newArr.push(el)
+            })
+            console.log(newArr)
+        }
+
+        double(['bark', 'meow'])
+
+        function arrSum(arr) {
+            let total = 0
+            arr.forEach(function (el) {
+                total += el
+            })
+            console.log(total)
+        }
+
+        arrSum([3, 64, 83, 4, 2])
+    </script>
+</body>
+
+</html>
