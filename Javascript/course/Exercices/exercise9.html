@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 9</title>
+</head>
+<body>
+    
+    <button onclick="add('Apple')">Apple</button>
+    <button onclick="add('Tomato')">Tomato</button>
+    <button onclick="add('Eggs')">Eggs</button>
+    <button onclick="clearCart()">Clear</button>
+    <div id="cart"></div>
+
+    <input type="text" id="textBox">
+    <button onclick="convert(1)">Convert to Inches</button>
+    <button onclick="convert(2)">Convert to Centimeters</button>
+    <div id="text"></div>
+    <script>
+        const cart = document.getElementById('cart')
+        const text = document.getElementById('text')
+
+        function add(food) {
+            const cartItem = document.createElement('div')
+            cartItem.innerText = food
+            cart.appendChild(cartItem)
+        }
+
+        function clearCart() {
+            cart.innerHTML = ''
+        }
+
+        function convert(type){
+            let value = document.getElementById('textBox').value
+            let result3
+            if(type === 1){
+                result = parseInt(value) / 2.54
+            }else {
+                result = parseInt(value) * 2.54
+            }
+
+            const el = document.createElement('div')
+            el.innerText = result
+            text.appendChild(el)
+        }
+    </script>
+</body>
+</html>

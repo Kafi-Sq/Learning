@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 10</title>
+</head>
+<body>
+    <div id="rec"></div>
+    <div id="cartTotal"></div>
+    
+    <script>
+        const rec = document.getElementById('rec')
+        const cart = [
+            {
+                name: 'Apple',
+                price: 4,
+                quantity: 2
+            },
+            {
+                name: 'Orange',
+                price: 3,
+                quantity: 2
+            },
+            {
+                name: 'Eggs',
+                price: 5,
+                quantity: 2
+            }
+        ]
+        
+        function cartTotal() {
+            let total = 0
+            cart.forEach(function (el) {
+                total = total + (el.price*el.quantity)
+                console.log(el.price)
+            })
+            console.log(total)
+            let cartTotal = document.getElementById('cartTotal')
+            let newEl = document.createElement('div')
+            newEl.innerText = 'Cart Total: ' + total
+            cartTotal.appendChild(newEl)
+        }
+
+        function displayRec(){
+            document.getElementById('rec').innerHTML = ''
+            cart.forEach(function (el){
+                const newEl = document.createElement('div')
+                newEl.innerText = el.name + ' $' + el.price + ' * ' + el.quantity + ' = $' + el.price*el.quantity
+                rec.appendChild(newEl)
+            })
+            cartTotal()
+        }
+
+        displayRec()
+
+
+    </script>
+</body>
+</html>

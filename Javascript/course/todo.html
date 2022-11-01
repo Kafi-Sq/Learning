@@ -8,22 +8,51 @@
 </head>
 <body>
     <input id="todoID" type="text" />
+    <input id="date" type="date">
     <button onclick="addTodo()">Add Todo</button>
 
-    <script>
-        let todos = ['Get groceries', 'Wash car', 'Make dinner']
+    <div id="todoList"></div>
 
-        todos.forEach(function (todoTitle) {
-            let element = document.createElement('div')
-            element.innerText = todoTitle
-            document.body.appendChild(element)
-        });
+    <script>
+        const todos = [{
+            title: 'Get groceries',
+            dueDate: '2022-10-04'
+        },
+        {
+            title: 'Wash car',
+            dueDate: '2022-10-04'
+        },
+        {
+            title: 'Make dinner',
+            dueDate: '2022-10-04'
+        }]
+
+        render()
 
         function addTodo() {
-            let textbox = document.getElementById('todoID')
-            let title = textbox.value
-            todos.push(title)
-        }   
+            const textbox = document.getElementById('todoID')
+            const title = textbox.value
+
+            const date = document.getElementById('date')
+            const dueDate = date.value
+            todos.push({
+                title: title,
+                dueDate: dueDate
+            })
+            render()
+        }
+        
+        function render() {
+            // reset list first
+            document.getElementById('todoList').innerHTML = ''
+
+            todos.forEach(function (todo) {
+                const element = document.createElement('div')
+                element.innerText = todo.title + ' - ' + todo.dueDate
+                const todoList = document.getElementById('todoList')
+                todoList.appendChild(element)
+            });
+        }
     </script>
 </body>
 </html>
